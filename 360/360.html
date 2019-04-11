@@ -1,0 +1,152 @@
+<head>
+
+<script src="js/three.min.js"></script>
+<script src="js/panolens.min.js"></script>
+    
+</head>
+
+
+<body>
+    
+    <div id="desc-container" style="display:none" >
+      <div style="max-width: 500px;
+    max-height: 500px;
+    min-width: 200px;
+    min-height: 250px;
+    background: #fff;
+    color: #000;
+    border-radius: 3px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+                  ">
+        <iframe src="https://www.youtube.com/embed/TdnG0N3V8hQ" style="border: none;
+    width: 100%; height: 270px;"></iframe>
+      <div class="title" style="font-size: 1.5em;text-align: center; padding: 5px;">Quality Marble</div>
+      <div class="text" style="">Marble is a metamorphic rock that evolves from limestone. Marble has a wide color selection ranging from white, black, grey, pink, grey, red and blue. Because of marbles high-end appearance it is commonly used in elegant settings like master bathrooms, wash stations, bath surrounds and fireplace surrounds. Since marble maintains a consistent temperature, it is also ideal for baking areas. Marble.com has an extensive collection of marble that will be able to fit whatever your project is.</div>
+          </div>
+    </div>
+
+<script>
+
+    var panorama, panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, panorama7, panorama8, panorama9, panorama10, panorama11, panorama12, panorama13, viewer, infospot, infospot2;
+    
+    //infospot for tv
+   // infospot = new PANOLENS.Infospot( 500, PANOLENS.DataImage.Info );
+   // infospot.position.set( -4888.42, 915.67, -447.83);
+   // infospot.addHoverText( '$1K 42" LED TV' );
+    
+    //infospot for marbleinformation
+   // infospot2 = new PANOLENS.Infospot( 350, '' );
+   // infospot2.position.set( -1124.79, -2971.02, 3854.50 );
+   // infospot2.addHoverElement( document.getElementById( 'desc-container' ), 200 );
+    
+    panorama1 = new PANOLENS.ImagePanorama( 'img/outside.jpg' );
+    panorama2 = new PANOLENS.ImagePanorama( 'img/downstairs_hall.jpg' );
+    panorama3 = new PANOLENS.ImagePanorama( 'img/livingroom.jpg' );
+    panorama4 = new PANOLENS.ImagePanorama( 'img/kitchen.jpg' );
+    panorama5 = new PANOLENS.ImagePanorama( 'img/toilet.jpg' );
+    panorama6 = new PANOLENS.ImagePanorama( 'img/downstairs_hall2.jpg' );
+    panorama7 = new PANOLENS.ImagePanorama( 'img/mid_hallway1.jpg' );
+    panorama8 = new PANOLENS.ImagePanorama( 'img/mid_hallway.jpg' );
+    panorama9 = new PANOLENS.ImagePanorama( 'img/room1.jpg' );
+    panorama10 = new PANOLENS.ImagePanorama( 'img/room2.jpg' );
+    panorama11 = new PANOLENS.ImagePanorama( 'img/top_hallway.jpg' );
+    panorama12 = new PANOLENS.ImagePanorama( 'img/room3.jpg' );
+    panorama13 = new PANOLENS.ImagePanorama( 'img/room4.jpg' );
+    
+    
+    panorama1.add( infospot );
+    panorama2.add( infospot2 );
+
+
+
+    viewer = new PANOLENS.Viewer({
+        cameraFov: 100,
+        viewIndicator: true,
+        output: 'console',
+    });
+        
+    viewer.add( panorama1, panorama2, panorama3, panorama4, panorama5, panorama6, panorama7, panorama8, panorama9, panorama10, panorama11, panorama12, panorama13 );
+    
+    //outside linking
+    
+    panorama1.link( panorama2, new THREE.Vector3( -46.77, 32.58, -449.95 ), 100,'img/point.png');
+    
+    
+    //downstairs hall linking
+    
+    panorama2.link( panorama1, new THREE.Vector3( -1270.5, 1500.18, 3854.50 ), 1000, 'img/point.png');
+    
+    panorama2.link( panorama3, new THREE.Vector3( -4214.23, 1573.48, -2166.11 ), 1000, 'img/point.png');
+    
+    panorama2.link( panorama4, new THREE.Vector3( 4546.67, 2033.21, 333.98 ), 1000, 'img/point.png');
+    
+    panorama2.link( panorama5, new THREE.Vector3( 2508.47, 1395.55, -4083.45 ), 1000, 'img/point.png');
+    
+    panorama2.link( panorama6, new THREE.Vector3( 1305.78, -1057.11, -4699.22 ), 1000, 'img/point.png');
+    
+    //livingroom linking
+    
+    panorama3.link( panorama2, new THREE.Vector3( 1969.4, 1191.30, 4437.36 ), 1000, 'img/point.png');
+    
+    //kitchen linking
+    
+    panorama4.link( panorama2, new THREE.Vector3( -2464.63, -559.15, 4308.74 ), 1000, 'img/point.png');
+    
+    //linking hallway2
+    
+    panorama6.link( panorama5, new THREE.Vector3( 1796.12, 3552.21, 3021.97 ), 1000, 'img/point.png');
+    
+    panorama6.link( panorama1, new THREE.Vector3( -3896.41, 367.78, 3099.60 ), 1000, 'img/point.png');
+    
+    panorama6.link( panorama7, new THREE.Vector3( -2427.98, 3174.86, -2992.78 ), 1000, 'img/point.png');
+    
+    //toilet linking
+    
+    panorama5.link( panorama6, new THREE.Vector3( -118.42, 1308.60, -4815.77 ), 1000, 'img/point.png');
+    
+    //midhallway1 linking
+    
+    panorama7.link( panorama8, new THREE.Vector3( -1145.31, -423.22, 4842.68 ), 1000, 'img/point.png');
+
+    panorama7.link( panorama9, new THREE.Vector3( -3433.04, -813.21, 3532.68 ), 1000, 'img/point.png');
+    
+    panorama7.link( panorama10, new THREE.Vector3( -2036.71, -308.58, 4552.60 ), 1000, 'img/point.png');
+ 
+    //room1 linking
+    panorama10.link( panorama8, new THREE.Vector3( 3510.72, 1279.37, -3310.88 ), 1000, 'img/point.png');
+    
+    //room2 linking
+    panorama9.link( panorama8, new THREE.Vector3( -2209.92, 2179.03, 3914.12 ), 1000, 'img/point.png');
+    
+    //midhallway linking
+    
+    panorama8.link( panorama7, new THREE.Vector3( -1795.62, -606.23, -4615.54 ), 1000, 'img/point.png');
+    
+    panorama8.link( panorama10, new THREE.Vector3( -3940.52, -2039.75, 2295.29 ), 1000, 'img/point.png');
+    
+    panorama8.link( panorama11, new THREE.Vector3( -389.96, 2408.55, -4356.98 ), 1000, 'img/point.png');
+    
+    //tophallway linking
+    
+    panorama11.link( panorama12, new THREE.Vector3( -2256.7, -604.58, 4408.66 ), 1000, 'img/point.png');
+    
+    panorama11.link( panorama13, new THREE.Vector3( -732.4, -419.18, 4920.59 ), 1000, 'img/point.png');
+    
+    panorama11.link( panorama8, new THREE.Vector3( 929.85, -3330.50, 3602.03 ), 1000, 'img/point.png');
+    
+    
+    //room 3 linking
+    panorama12.link( panorama11, new THREE.Vector3( 3376.29, 2225.23, 2932.76 ), 1000, 'img/point.png');
+    
+    
+    //room 4 linking
+    
+    panorama13.link( panorama11, new THREE.Vector3( -3460.7, 641.07, 3537.33 ), 1000, 'img/point.png');
+
+
+</script>
+    
+    
+    
+</body>
